@@ -1,0 +1,9 @@
+﻿.help-block {
+    color: #ffffff;
+    font-weight: 400;
+    padding-left: 10px;
+    background: #7d4141;
+}
+
+/*Bootstrap ui cursor fix */
+.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }

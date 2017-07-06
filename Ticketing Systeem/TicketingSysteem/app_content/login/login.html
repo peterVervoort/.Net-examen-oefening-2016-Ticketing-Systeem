@@ -1,0 +1,18 @@
+﻿<div class="row">
+    <div class="account-col text-center">
+        <h1>{{'LOGTicketingSysteemTitel' | translate}}</h1>
+        <h3>{{'LOGLogIntoYourAccount' | translate}}</h3>
+        <form class="m-t" role="form" ng-submit="ctrl.login()">
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="{{'LOGPlaceHolderUsername' | translate}}" required ng-model="ctrl.user.username">
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" placeholder="{{'LOGPlaceHolderPassword' | translate}}" required ng-model="ctrl.user.password">
+            </div>
+            <button type="submit" class="btn btn-primary btn-block ">{{'LOGLogin' | translate}}</button>
+
+            <br />
+            <p>Peter Vervoort - Sven Noreillie &copy; 2017</p>
+        </form>
+    </div>
+</div>

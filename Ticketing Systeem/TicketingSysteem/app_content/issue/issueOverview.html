@@ -1,0 +1,60 @@
+﻿<div class="row">
+    <div class="col-sm-12">
+        <div class="page-title">
+            <h1>{{'ICIssues' | translate}}<small></small></h1>
+            <ol class="breadcrumb">
+                <li><a href="#"><i class="fa fa-home"></i></a></li>
+                <li class="active">{{'ICIssues' | translate}}</li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+<div class="row" ng-show="userRole == 'Manager'">
+    <div class="col-md-12">
+        <div class="panel panel-card margin-b-30 ">
+            <div class="panel-heading">
+                <p>{{'IOFilterUser' | translate}}</p>
+                <select class="form-control m-b"
+                        name="solver"
+                        ng-options="minion.voornaam + ' ' + minion.achternaam for minion in ctrl.minions track by minion.id"
+                        ng-model="ctrl.table.filter.minion">
+                    <option value="">-</option>
+                </select>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-card margin-b-30 ">
+            <div class="panel-heading">
+                <h4 class="panel-title">{{'IOOverview' | translate}}</h4>
+                <div class="panel-actions">
+                    <a ui-sref="issue.new" class="btn btn-primary">{{'IOAddNew' | translate}}</a>
+                </div>
+            </div>
+            <div class="panel-body">
+                <table class="table table-condensed">
+                    <thead>
+                        <tr>
+                            <th ng-repeat="header in ctrl.table.headers">{{header.name | translate}}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="row in ctrl.table.data" ui-sref="issue.detail({issueId: row.id})">
+                            <td>{{row.huidigeStatus | translate}}</td>
+                            <td>{{row.titel}}</td>
+                            <td>{{row.niveau | translate}}</td>
+                            <td>{{row.gebruiker}}</td>
+                            <td>{{row.issueDate | date : 'shortDate'}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+

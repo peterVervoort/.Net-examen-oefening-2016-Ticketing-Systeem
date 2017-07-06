@@ -1,0 +1,47 @@
+﻿<div class="row">
+    <div class="col-sm-12">
+        <div class="page-title">
+            <h1>{{'MTSUsers' | translate}}<small></small></h1>
+            <ol class="breadcrumb">
+                <li><a href="#"><i class="fa fa-home"></i></a></li>
+                <li class="active">{{'UCUsers' | translate}}</li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-card margin-b-30 ">
+            <div class="panel-heading">
+                <h4 class="panel-title">{{'UOOverview' | translate}}</h4>
+                <div class="panel-actions">
+                    <a ui-sref="users.new" class="btn btn-primary">{{'UOAddNew' | translate}}</a>
+                </div>
+            </div>
+            <div class="panel-body">
+                <table class="table table-condensed">
+                    <thead>
+                        <tr>
+                            <th ng-repeat="header in ctrl.table.headers">{{header.name | translate}}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="row in ctrl.table.data" ui-sref="users.detail({userId: row.id})">
+                            <td>{{row.voornaam}}</td>
+                            <td>{{row.achternaam}}</td>
+                            <td>{{row.email}}</td>
+                            <td>{{row.telefoonnummer}}</td>
+                            <td>{{row.gsmNummer}}</td>
+                            <td>{{row.verantwoordelijke}}</td>
+                            <td>{{row.rol | translate}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

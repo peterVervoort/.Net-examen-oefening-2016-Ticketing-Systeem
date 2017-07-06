@@ -1,0 +1,33 @@
+﻿<div class="row">
+    <div class="col-sm-12">
+        <div class="page-title">
+            <h1>Issuestatus<small></small></h1>
+            <ol class="breadcrumb">
+                <li><a href="#"><i class="fa fa-home"></i></a></li>
+                <li><a ui-sref="issue.detail({issueId:ctrl.issueStatus.issueId})">{{'ICIssues' | translate}}</a></li>
+                <li class="active">{{'ISDDetail' | translate}}</li>
+            </ol>
+        </div>
+    </div>
+</div><!-- end .page title-->
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-card margin-b-30 ">
+            <div class="panel-heading">
+                <h4 class="panel-title">{{'ISDDetail' | translate}}</h4>
+            </div>
+            <div class="panel-body">
+                <form class="form-horizontal">
+                    <detail-item label="ISCStatus" value="{{ctrl.issueStatus.statusBeschrijving | translate}}"></detail-item>
+                    <detail-item label="ISCSolver" value="{{ctrl.issueStatus.solver}}"></detail-item>
+                    <detail-item label="ISCAnnulationRaison" value="{{ctrl.issueStatus.annulatieReden}}"></detail-item>
+                    <detail-item label="ISDCreation" value="{{ctrl.issueStatus.creationDate | date : 'short'}}"></detail-item>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Overzicht extra infos die hieran hangen-->
+<extra-info issue-status-id="ctrl.issueStatus.id"></extra-info>

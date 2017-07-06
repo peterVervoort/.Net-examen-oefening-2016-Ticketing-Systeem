@@ -1,0 +1,39 @@
+﻿<div class="modal-header">
+    <h3 class="modal-title" id="modal-title">{{'SHDSolver' | translate}}</h3>
+</div>
+<div class="modal-body" id="modal-body">
+    <form class="form-horizontal"
+          name="solverForm"
+          ng-submit="$ctrl.ok()"
+          novalidate>
+        <div class="form-group">
+            <label class="col-lg-2 control-label">{{'SHDSolver' | translate}}</label>
+
+            <div class="col-lg-10">
+                <select class="form-control m-b"
+                        name="solver"
+                        ng-options="solver.voornaam + ' ' + solver.achternaam for solver in $ctrl.solvers track by solver.id"
+                        ng-model="$ctrl.solverId">
+                </select>
+                <p ng-show="solverForm.solver.$invalid && solverForm.solver.$touched"
+                   class="help-block">{{'SSMSolverRequired' | translate}}</p>
+            </div>
+        </div>
+        
+        <div class="modal-footer">
+            <div class="form-group">
+                <div class="col-lg-offset-2 col-lg-10">
+                    <button class="btn btn-sm btn-primary"
+                            ng-disabled="solverForm.$invalid"
+                            type="submit">
+                        {{'UCSave' | translate}}
+                    </button>
+                    <button class="btn btn-sm btn-default"
+                            ng-click="$ctrl.cancel()">
+                        {{'UCCancel' | translate}}
+                    </button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

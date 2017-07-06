@@ -1,0 +1,18 @@
+﻿<div ui-view>
+    <!-- Hier komen alle views in -->
+</div>
+
+<!-- Meldingen container -->
+<toaster-container toaster-options="{
+        'close-button':{
+            'toast-warning': true,
+            'toast-error': true,
+            'toast-success': false
+        },
+        'time-out':{
+            'toast-warning': 6000,
+            'toast-error': 6000,
+            'toast-success': 4000
+        }
+    }">
+</toaster-container>

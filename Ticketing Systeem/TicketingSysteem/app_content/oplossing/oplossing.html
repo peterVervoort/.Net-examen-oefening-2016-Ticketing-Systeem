@@ -1,0 +1,40 @@
+﻿<div class="modal-header">
+<h3 class="modal-title" id="modal-title">{{'OMTitle' | translate}}</h3>
+</div>
+<div class="modal-body" id="modal-body">
+    <form class="form-horizontal"
+          name="oplossingForm"
+          ng-submit="$ctrl.ok()"
+          novalidate>
+        <div class="form-group">
+            <label class="col-lg-2 control-label">{{'OMTitle' | translate}}</label>
+
+            <div class="col-lg-10">
+                <input type="text"
+                       name="oplossing"
+                       required
+                       placeholder="{{'OMTitle' | translate}}"
+                       ng-model="$ctrl.oplossing"
+                       class="form-control">
+                <p ng-show="oplossingForm.oplossing.$invalid && oplossingForm.oplossing.$touched"
+                   class="help-block">{{'OMRequired' | translate}}</p>
+            </div>
+        </div>
+
+        <div class="modal-footer">
+            <div class="form-group">
+                <div class="col-lg-offset-2 col-lg-10">
+                    <button class="btn btn-sm btn-primary"
+                            ng-disabled="oplossingForm.$invalid"
+                            type="submit">
+                        {{'EICSave' | translate}}
+                    </button>
+                    <button class="btn btn-sm btn-default"
+                            ng-click="$ctrl.cancel()">
+                        {{'EICCancel' | translate}}
+                    </button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

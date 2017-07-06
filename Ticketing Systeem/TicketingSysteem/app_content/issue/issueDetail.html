@@ -1,0 +1,46 @@
+﻿<div class="row">
+    <div class="col-sm-12">
+        <div class="page-title">
+            <h1>{{'ICIssues' | translate}}<small></small></h1>
+            <ol class="breadcrumb">
+                <li><a href="#"><i class="fa fa-home"></i></a></li>
+                <li><a ui-sref="issue.list">{{'ICIssues' | translate}}</a></li>
+                <li class="active">{{'ISDDetail' | translate}}</li>
+            </ol>
+        </div>
+    </div>
+</div><!-- end .page title-->
+
+<!-- issues -->
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-card margin-b-30 ">
+            <div class="panel-heading">
+                <h4 class="panel-title">{{'ISDDetail' | translate}}</h4>
+                <div class="panel-actions">
+                    <a class="btn btn-default" 
+                       style="margin-right:10px" 
+                       ng-repeat="state in ctrl.newStates" 
+                       ng-click="ctrl.goToState(state)">=> {{state}}
+                    </a>
+                </div>
+            </div>
+            <div class="panel-body">
+                <form class="form-horizontal">
+                    <detail-item label="ICTitel" value="{{ctrl.issue.titel}}"></detail-item>
+                    <detail-item label="ICBeschrijving" value="{{ctrl.issue.beschrijving}}"></detail-item>
+                    <detail-item label="ICNiveau" value="{{ctrl.issue.niveau | translate}}"></detail-item>
+                    <detail-item label="ICDate" value="{{ctrl.issue.issueDate | date : 'short'}}"></detail-item>
+                    <detail-item label="IDCreateDate" value="{{ctrl.issue.creationDate | date : 'short'}}"></detail-item>
+                    <detail-item label="IDUser" value="{{ctrl.issue.gebruiker}}"></detail-item>
+                    <detail-item label="IDSolver" value="{{ctrl.issue.solver}}"></detail-item>
+                    <detail-item label="IDSolution" value="{{ctrl.issue.oplossing}}"></detail-item>
+                    <detail-item label="CurrentState" value="{{ctrl.issue.huidigeStatus | translate}}"></detail-item>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Historiek -->
+<status-historiek issue-id="ctrl.issue.id"></status-historiek>

@@ -1,0 +1,31 @@
+﻿<div class="row">
+    <div class="col-sm-12">
+        <div class="page-title">
+            <h1>{{'EICExtraInfo' | translate}}<small></small></h1>
+            <ol class="breadcrumb">
+                <li><a href="#"><i class="fa fa-home"></i></a></li>
+                <li><a ui-sref="extrainfo.list">{{'EICExtraInfo' | translate}}</a></li>
+                <li class="active">{{'EIDDetail' | translate}}</li>
+            </ol>
+        </div>
+    </div>
+</div><!-- end .page title-->
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-card margin-b-30 ">
+            <div class="panel-heading">
+                <h4 class="panel-title">{{'EIDDetail' | translate}}</h4>
+                <div class="panel-actions">
+                    <a class="btn btn-danger" ng-click="ctrl.delete()">{{'EIDDelete' | translate}}</a>
+                </div>
+            </div>
+            <div class="panel-body">
+                <form class="form-horizontal">
+                    <detail-item label="EICQuestion" value="{{ctrl.extraInfo.infoVraag}}"></detail-item>
+                    <detail-item label="EICAnswer" value="{{ctrl.extraInfo.infoAntwoord}}"></detail-item>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

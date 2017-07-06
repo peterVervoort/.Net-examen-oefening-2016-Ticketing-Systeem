@@ -1,0 +1,115 @@
+﻿<div class="row">
+    <div class="col-sm-12">
+        <div class="page-title">
+            <h1>{{'ICIssues' | translate}}<small></small></h1>
+            <ol class="breadcrumb">
+                <li><a href="#"><i class="fa fa-home"></i></a></li>
+                <li><a href="#" ui-sref="issue.list">{{'ICIssues' | translate}}</a></li>
+                <li class="active">{{'ICNew' | translate}}</li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-card margin-b-30 ">
+            <div class="panel-heading">
+                <h4 class="panel-title">{{'ICNewIssue' | translate}}</h4>
+                <div class="panel-actions">
+
+                </div>
+            </div>
+            <div class="panel-body">
+                <form class="form-horizontal"
+                      name="issueForm"
+                      ng-submit="ctrl.save(issueForm.$valid)"
+                      novalidate>
+                    <div class="form-group">
+                        <label class="col-lg-2 control-label">{{'ICTitel' | translate}}</label>
+
+                        <div class="col-lg-10">
+                            <input type="text"
+                                   name="titel"
+                                   required
+                                   placeholder="{{'ICTitel' | translate}}"
+                                   ng-model="ctrl.issue.titel"
+                                   class="form-control">
+                            <p ng-show="issueForm.titel.$invalid && issueForm.titel.$touched"
+                               class="help-block">{{'ICTitelIsRequired' | translate}}</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-2 control-label">{{'ICBeschrijving' | translate}}</label>
+
+                        <div class="col-lg-10">
+                            <input type="text"
+                                   required
+                                   name="beschrijving"
+                                   placeholder="{{'ICBeschrijving' | translate}}"
+                                   ng-model="ctrl.issue.beschrijving"
+                                   class="form-control">
+                            <p ng-show="issueForm.beschrijving.$invalid && issueForm.beschrijving.$touched"
+                               class="help-block">{{'ICBeschrijvingIsRequired' | translate}}</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-2 control-label">{{'ICNiveau' | translate}}</label>
+
+                        <div class="col-lg-10">
+                            <select class="form-control m-b"
+                                    name="niveau"
+                                    ng-options="(niveau | translate) for niveau in ctrl.niveaus"
+                                    ng-model="ctrl.issue.niveau">
+                                <option value=""
+                                        disabled>
+                                    -
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-2 control-label">{{'ICDate' | translate}}</label>
+
+                        <div class="col-lg-10">
+                            <!--<input type="date"
+                                   name="date"
+                                   placeholder="{{'ICDate' | translate}}"
+                                   ng-model="ctrl.issue.issueDate"
+                                   class="form-control">-->
+                            <p class="input-group">
+                                <input type="text"
+                                       class="form-control"
+                                       uib-datepicker-popup
+                                       ng-model="ctrl.issue.issueDate"
+                                       is-open="popup2.opened"
+                                       datepicker-options="ctrl.dateOptions"
+                                       close-text="Close" />
+                                <span class="input-group-btn">
+                                    <button type="button" class="btn btn-default"
+                                            ng-click="popup2.opened = true;">
+                                        <i class="glyphicon glyphicon-calendar"></i>
+                                    </button>
+                                </span>
+                            </p>
+                        </div>
+                    </div>  
+                    
+                    <div class="form-group">
+                        <div class="col-lg-offset-2 col-lg-10">
+                            <button class="btn btn-sm btn-primary"
+                                    ng-disabled="issueForm.$invalid"
+                                    type="submit">
+                                {{'ICSave' | translate}}
+                            </button>
+                            <button class="btn btn-sm btn-default"
+                                    ng-click="ctrl.cancel()">
+                                {{'ICCancel' | translate}}
+                            </button>
+                        </div>
+                    </div>           
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

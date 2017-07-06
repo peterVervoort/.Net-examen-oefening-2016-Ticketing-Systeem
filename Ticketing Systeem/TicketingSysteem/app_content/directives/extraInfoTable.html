@@ -1,0 +1,25 @@
+﻿<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-card margin-b-30 ">
+            <div class="panel-heading">
+                <h4 class="panel-title">{{'EICExtraInfo' | translate}}</h4>
+            </div>
+            <div class="panel-body">
+                <table class="table table-condensed">
+                    <thead>
+                        <tr>
+                            <th ng-repeat="header in table.headers">{{header.name | translate}}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="row in table.data" >
+                            <td>{{row.infoVraag}}</td>
+                            <td>{{row.infoAntwoord}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+

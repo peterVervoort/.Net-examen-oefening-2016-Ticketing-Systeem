@@ -1,0 +1,153 @@
+﻿<div class="row">
+    <div class="col-sm-12">
+        <div class="page-title">
+            <h1>{{'UCUsers' | translate}}<small></small></h1>
+            <ol class="breadcrumb">
+                <li><a href="#"><i class="fa fa-home"></i></a></li>
+                <li><a href="#" ui-sref="users.list">{{'UCUsers' | translate}}</a></li>
+                <li class="active">{{'UCNew' | translate}}</li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-card margin-b-30 ">
+            <div class="panel-heading">
+                <h4 class="panel-title">{{'UCNewUser' | translate}}</h4>
+                <div class="panel-actions">
+
+                </div>
+            </div>
+            <div class="panel-body">
+                <form class="form-horizontal" 
+                      name="userForm"
+                      ng-submit="ctrl.save(userForm.$valid)" 
+                      novalidate>
+                    <div class="form-group">
+                        <label class="col-lg-2 control-label">{{'UCFirstName' | translate}}</label>
+
+                        <div class="col-lg-10">
+                            <input type="text" 
+                                   name="firstName"
+                                   required
+                                   placeholder="{{'UCFirstName' | translate}}" 
+                                   ng-model="ctrl.user.voornaam" 
+                                   class="form-control">
+                            <p ng-show="userForm.firstName.$invalid && userForm.firstName.$touched" 
+                               class="help-block">{{'UCFirstNameRequired' | translate}}</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-2 control-label">{{'UCName' | translate }}</label>
+
+                        <div class="col-lg-10">
+                            <input type="text" 
+                                   required
+                                   name="name"
+                                   placeholder="{{'UCName' | translate }}" 
+                                   ng-model="ctrl.user.achternaam" 
+                                   class="form-control">
+                            <p ng-show="userForm.name.$invalid && userForm.name.$touched"
+                               class="help-block">{{'UCNameRequired' | translate }}</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-2 control-label">{{'UCEmail' | translate }}</label>
+
+                        <div class="col-lg-10">
+                            <input type="email"
+                                   required
+                                   name="email"
+                                   placeholder="{{'UCEmail' | translate }}" 
+                                   ng-model="ctrl.user.email" 
+                                   class="form-control">
+                            <p ng-show="userForm.email.$invalid && userForm.email.$touched"
+                               class="help-block">{{'UCEmailPleaseProvide' | translate }}</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-2 control-label">{{'UCPhone' | translate}}</label>
+
+                        <div class="col-lg-10">
+                            <input type="text" 
+                                   name="phone"
+                                   placeholder="{{'UCPhone' | translate}}" 
+                                   ng-model="ctrl.user.telefoonnummer" 
+                                   class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-2 control-label">{{'UCMobile' | translate}}</label>
+
+                        <div class="col-lg-10">
+                            <input type="text"
+                                   name="mobile"
+                                   placeholder="{{'UCMobile' | translate}}"
+                                   ng-model="ctrl.user.gsmNummer"
+                                   class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group"  ng-if="!ctrl.edit">
+                        <label class="col-lg-2 control-label">{{'UCPassword' | translate}}</label>
+
+                        <div class="col-lg-10">
+                            <input type="password" 
+                                   required
+                                   name="password"
+                                   ng-disabled="ctrl.edit"
+                                   placeholder="{{'UCPassword' | translate}}" 
+                                   ng-model="ctrl.user.paswoord" 
+                                   ng-minlength="8"
+                                   class="form-control">
+                            <p ng-show="userForm.password.$invalid && userForm.password.$touched"
+                               class="help-block">{{'UCPasswordLenght' | translate}}</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-2 control-label">{{'UCChief' | translate}}</label>
+
+                        <div class="col-lg-10">
+                            <select class="form-control m-b" 
+                                    name="chief"
+                                    ng-options="chief.voornaam + ' ' + chief.achternaam for chief in ctrl.chiefs track by chief.id" 
+                                    ng-model="ctrl.user.verantwoordelijke">
+                                <option value="" >-</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-2 control-label">{{'UCRole' | translate}}</label>
+
+                        <div class="col-lg-10">
+                            <select class="form-control m-b"
+                                    required
+                                    name="{{'UCRole' | translate}}"
+                                    ng-options="(role | translate) for role in ctrl.roles"
+                                    ng-model="ctrl.user.rol">
+                                <option value=""
+                                        disabled>
+                                    -
+                                </option>
+                            </select>
+                            <p ng-show="userForm.role.$invalid && userForm.role.$touched"
+                               class="help-block">{{'UCRolRequired' | translate }}</p>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <div class="col-lg-offset-2 col-lg-10">
+                            <button class="btn btn-sm btn-primary" 
+                                    ng-disabled="userForm.$invalid" 
+                                    type="submit">{{'UCSave' | translate}}</button>
+                            <button class="btn btn-sm btn-default" 
+                                    ng-click="ctrl.cancel()">{{'UCCancel' | translate }}</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
